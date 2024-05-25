@@ -146,6 +146,7 @@
     lunar-client
     lutris
     wine
+    shutter
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
