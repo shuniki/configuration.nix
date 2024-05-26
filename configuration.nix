@@ -23,7 +23,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  # Set cores and jobs
+  nix.settings.max-jobs = 2;
+  nix.settings.cores = 4;
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Bucharest";
 
@@ -146,6 +150,8 @@
     lunar-client
     lutris
     wine
+    shutter
+    pywal
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -157,7 +163,12 @@
    };
 
   # List services that you want to enable:
-
+   
+  # Use swap
+ swapDevices = [{
+   	device = "/swapfile";
+	size = 16 * 1024; # 16 gb
+   }];
   # Use flakes
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable the OpenSSH daemon.
