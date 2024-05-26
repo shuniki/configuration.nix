@@ -151,7 +151,10 @@
     lutris
     wine
     shutter
+<<<<<<< HEAD
     pywal
+=======
+>>>>>>> 67bcf0cb3738609284562bd81d3349e07a429b06
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
