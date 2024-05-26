@@ -155,6 +155,9 @@
     pywal
     glava
     cavalier
+    protontricks
+    python3
+    wallust
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
