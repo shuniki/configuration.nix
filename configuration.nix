@@ -13,6 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   networking.hostName = "shuniki"; # Define your hostname.
  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -24,7 +25,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   # Set cores and jobs
-  nix.settings.max-jobs = 2;
+  nix.settings.max-jobs = 4;
   nix.settings.cores = 4;
   # Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -151,10 +152,9 @@
     lutris
     wine
     shutter
-<<<<<<< HEAD
     pywal
-=======
->>>>>>> 67bcf0cb3738609284562bd81d3349e07a429b06
+    glava
+    cavalier
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
