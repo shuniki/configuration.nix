@@ -158,6 +158,9 @@
     protontricks
     python3
     wallust
+    cowsay
+    neo-cowsay
+    toybox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -165,7 +168,7 @@
    programs.mtr.enable = true;
    programs.gnupg.agent = {
      enable = true;
-     enableSSHSupport = true;
+     enableSSHSupport = true;ne
    };
 
   # List services that you want to enable:
