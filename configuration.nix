@@ -161,6 +161,7 @@
     cowsay
     neo-cowsay
     toybox
+    pcsxr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
