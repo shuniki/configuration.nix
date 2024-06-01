@@ -184,6 +184,7 @@
     pv
     cmatrix
     cbonsai
+    grapejuice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
