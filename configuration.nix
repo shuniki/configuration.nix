@@ -165,6 +165,7 @@
     protonup-ng
     bleachbit
     obs-studio
+    nix-init
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
