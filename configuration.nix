@@ -111,7 +111,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kate
-    #  thunderbird
+      thunderbird
     ];
   };
 
@@ -169,6 +169,7 @@
     appimage-run
     libsForQt5.dolphin
     libsForQt5.ark
+    libsForQt5.kate
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
