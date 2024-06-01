@@ -170,6 +170,7 @@
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
+    tor
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
