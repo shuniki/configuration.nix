@@ -167,6 +167,8 @@
     obs-studio
     nix-init
     appimage-run
+    libsForQt5.dolphin
+    libsForQt5.ark
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
