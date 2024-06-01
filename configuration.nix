@@ -171,6 +171,19 @@
     libsForQt5.ark
     libsForQt5.kate
     tor
+    neo-cowsay
+    cowsay
+    kittysay
+    pokemonsay
+    man
+    lolcat
+    aewan
+    jp2a
+    fortune
+    fortune-kind
+    pv
+    cmatrix
+    cbonsai
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
