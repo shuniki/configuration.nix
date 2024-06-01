@@ -166,6 +166,7 @@
     bleachbit
     obs-studio
     nix-init
+    appimage-run
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
