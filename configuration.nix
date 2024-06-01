@@ -53,11 +53,11 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   # Default environment.
   environment.sessionVariables = {
    EDITOR = "nvim";
-   BROWSER = "brave";	
+   BROWSER = "brave";
    TERMINAL = "kitty";
 };
 
@@ -69,7 +69,7 @@
    environment.sessionVariables = {
   # Hint electron apps to use wayland
    NIXOS_OZONE_WL = "1";
-  }; 
+  };
  hardware = {
    opengl.enable = true;
    nvidia.modesetting.enable = true;
@@ -162,6 +162,9 @@
     neo-cowsay
     toybox
     pcsxr
+    protonup-ng
+    bleachbit
+    obs-studio
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -169,11 +172,11 @@
    programs.mtr.enable = true;
    programs.gnupg.agent = {
      enable = true;
-     enableSSHSupport = true;ne
+     enableSSHSupport = true;
    };
 
   # List services that you want to enable:
-   
+
   # Use swap
  swapDevices = [{
    	device = "/swapfile";
