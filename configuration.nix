@@ -2,17 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # Fixes a kernel bug where the touchpad isn't recognized fully
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   networking.hostName = "shuniki"; # Define your hostname.
@@ -112,8 +114,20 @@
     packages = with pkgs; [
       kate
       thunderbird
+      firefox
+      brave
+      vim
+      neovim
     ];
   };
+
+  home-manager = {
+   # also pass inputs to home-manager modules
+   extraSpecialArgs = { inherit inputs; };
+   users = {
+   	"shuniki" = import ./home.nix;
+  };
+};
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -185,6 +199,7 @@
     cmatrix
     cbonsai
     grapejuice
+    shipwright
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
