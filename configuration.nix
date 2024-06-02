@@ -142,17 +142,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    vlc
     wget
     wayland
     brave
-    neofetch
-    ani-cli
     discord
-    pcsx2
-    hyfetch
-    git
     vesktop
+    neofetch
+    hyfetch
+    ani-cli
+   #animdl
+    pcsx2
+    git
     waybar
     dunst
     libnotify
@@ -201,7 +203,6 @@
     grapejuice
     shipwright
     nerdfonts
-    animdl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
