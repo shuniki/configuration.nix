@@ -105,12 +105,12 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
    services.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shuniki = {
     isNormalUser = true;
     description = "shuniki";
     extraGroups = [ "networkmanager" "wheel" ];
+    hashedPassword = "$y$j9T$7rY51athJ8Kk01AXzfdD70$s5211tr8g0I0m/5k7G7FQ6U1ZHEdP5gjkYns5N1gx33";
     packages = with pkgs; [
       kate
       thunderbird
@@ -155,6 +155,7 @@
    #animdl
     pcsx2
     git
+    SDL
     waybar
     dunst
     libnotify
