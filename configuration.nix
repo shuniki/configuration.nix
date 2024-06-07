@@ -61,6 +61,7 @@
    EDITOR = "nvim";
    BROWSER = "brave";
    TERMINAL = "kitty";
+   SHELL = "bash";
 };
 
   # Enable hyprland
@@ -131,6 +132,8 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  # Install java.
+  programs.java.enable = true;
   # Install steam.
   programs.steam.enable = true;
   # Allow unfree packages
@@ -184,6 +187,8 @@
     obs-studio
     nix-init
     appimage-run
+    steam-run
+    minigalaxy
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
