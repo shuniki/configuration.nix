@@ -2,17 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # Fixes a kernel bug where the touchpad isn't recognized fully
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   networking.hostName = "shuniki"; # Define your hostname.
@@ -53,12 +55,13 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   # Default environment.
   environment.sessionVariables = {
    EDITOR = "nvim";
-   BROWSER = "brave";	
+   BROWSER = "brave";
    TERMINAL = "kitty";
+   SHELL = "bash";
 };
 
   # Enable hyprland
@@ -69,7 +72,7 @@
    environment.sessionVariables = {
   # Hint electron apps to use wayland
    NIXOS_OZONE_WL = "1";
-  }; 
+  };
  hardware = {
    opengl.enable = true;
    nvidia.modesetting.enable = true;
@@ -103,20 +106,34 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
    services.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shuniki = {
     isNormalUser = true;
     description = "shuniki";
     extraGroups = [ "networkmanager" "wheel" ];
+    hashedPassword = "$y$j9T$7rY51athJ8Kk01AXzfdD70$s5211tr8g0I0m/5k7G7FQ6U1ZHEdP5gjkYns5N1gx33";
     packages = with pkgs; [
       kate
-    #  thunderbird
+      thunderbird
+      firefox
+      brave
+      vim
+      neovim
     ];
   };
 
+  home-manager = {
+   # also pass inputs to home-manager modules
+   extraSpecialArgs = { inherit inputs; };
+   users = {
+   	"shuniki" = import ./home.nix;
+  };
+};
+
   # Install firefox.
   programs.firefox.enable = true;
+  # Install java.
+  programs.java.enable = true;
   # Install steam.
   programs.steam.enable = true;
   # Allow unfree packages
@@ -128,17 +145,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    vlc
     wget
     wayland
     brave
-    neofetch
-    ani-cli
     discord
-    pcsx2
-    hyfetch
-    git
     vesktop
+    neofetch
+    hyfetch
+    ani-cli
+   #animdl
+    pcsx2
+    git
+    SDL
     waybar
     dunst
     libnotify
@@ -161,6 +181,34 @@
     cowsay
     neo-cowsay
     toybox
+    pcsxr
+    protonup-ng
+    bleachbit
+    obs-studio
+    nix-init
+    appimage-run
+    steam-run
+    minigalaxy
+    libsForQt5.dolphin
+    libsForQt5.ark
+    libsForQt5.kate
+    tor
+    neo-cowsay
+    cowsay
+    kittysay
+    pokemonsay
+    man
+    lolcat
+    aewan
+    jp2a
+    fortune
+    fortune-kind
+    pv
+    cmatrix
+    cbonsai
+    grapejuice
+    shipwright
+    nerdfonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -168,11 +216,11 @@
    programs.mtr.enable = true;
    programs.gnupg.agent = {
      enable = true;
-     enableSSHSupport = true;ne
+     enableSSHSupport = true;
    };
 
   # List services that you want to enable:
-   
+
   # Use swap
  swapDevices = [{
    	device = "/swapfile";
