@@ -2,47 +2,32 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Fixes a kernel bug where the touchpad isn't recognized fully
-  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "shuniki"; # Define your hostname.
- # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable automatic system upgrades
-  system.autoUpgrade = {
-  enable = true;
-  flake = inputs.self.outPath;
-  flags = [
-    "--update-input"
-    "nixpkgs"
-    "-L" #print build logs
-  ];
-  dates = "02:00";
-  randomizedDelaySec = "45min";
-  };
   # Enable networking
   networking.networkmanager.enable = true;
-  # Set cores and jobs
-  nix.settings.max-jobs = 4;
-  nix.settings.cores = 4;
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
+
+  # Enable network manager applet
+  programs.nm-applet.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Bucharest";
 
@@ -64,36 +49,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Default environment.
-  environment.sessionVariables = {
-   EDITOR = "nvim";
-   BROWSER = "brave";
-   TERMINAL = "kitty";
-   SHELL = "bash";
-};
-
-  # Enable hyprland
-   programs.hyprland = {
-   enable = true;
-   xwayland.enable = true;
-  };
-   environment.sessionVariables = {
-  # Hint electron apps to use wayland
-   NIXOS_OZONE_WL = "1";
-  };
- hardware = {
-   opengl.enable = true;
-   nvidia.modesetting.enable = true;
-  };
+  # Enable the LXQT Desktop Environment.
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.lxqt.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
-   xkb.layout = "us";
-    xkb.variant = "";
+    layout = "us";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
@@ -117,120 +80,33 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-   services.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shuniki = {
     isNormalUser = true;
     description = "shuniki";
     extraGroups = [ "networkmanager" "wheel" ];
-    hashedPassword = "$y$j9T$7rY51athJ8Kk01AXzfdD70$s5211tr8g0I0m/5k7G7FQ6U1ZHEdP5gjkYns5N1gx33";
     packages = with pkgs; [
-      kate
-      thunderbird
-      firefox
-      brave
-      vim
-      neovim
+    #  thunderbird
     ];
   };
 
-  home-manager = {
-   # also pass inputs to home-manager modules
-   extraSpecialArgs = { inherit inputs; };
-   users = {
-   	"shuniki" = import ./home.nix;
-  };
-};
-
   # Install firefox.
   programs.firefox.enable = true;
-  # Install java.
-  programs.java.enable = true;
-  # Install steam.
-  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # Allow xdg portal
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  # Fix LD
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged
-    # programs here, NOT in environment.systemPackages!
-  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    vlc
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    wayland
-    brave
-    discord
-    vesktop
-    neofetch
-    hyfetch
-    ani-cli
-   #animdl
-    pcsx2
-    retroarch
-    dolphin-emu
-    git
-    SDL
-    waybar
-    dunst
-    libnotify
-    kitty
-    swww
-    rofi-wayland
-    neovim
     gitkraken
-    protonup-qt
-    lunar-client
-    lutris
-    wine
-    shutter
-    pywal
-    glava
-    cavalier
-    protontricks
-    python3
-    wallust
-    cowsay
-    neo-cowsay
-    toybox
-    pcsxr
-    protonup-ng
-    bleachbit
-    obs-studio
-    nix-init
-    appimage-run
-    steam-run
-    minigalaxy
-    libsForQt5.dolphin
-    libsForQt5.ark
+    brave
+    neovim
     libsForQt5.kate
-    tor
-    neo-cowsay
-    cowsay
-    kittysay
-    pokemonsay
-    man
-    lolcat
-    aewan
-    jp2a
-    fortune
-    fortune-kind
-    pv
-    cmatrix
-    cbonsai
-    grapejuice
-    shipwright
-    nerdfonts
-    pipes
-    yewtube
-    easyrpg-player
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -243,13 +119,6 @@
 
   # List services that you want to enable:
 
-  # Use swap
- swapDevices = [{
-   	device = "/swapfile";
-	size = 16 * 1024; # 16 gb
-   }];
-  # Use flakes
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
