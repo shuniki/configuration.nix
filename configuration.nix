@@ -24,6 +24,18 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Enable automatic system upgrades
+  system.autoUpgrade = {
+  enable = true;
+  flake = inputs.self.outPath;
+  flags = [
+    "--update-input"
+    "nixpkgs"
+    "-L" #print build logs
+  ];
+  dates = "02:00";
+  randomizedDelaySec = "45min";
+  };
   # Enable networking
   networking.networkmanager.enable = true;
   # Set cores and jobs
@@ -141,7 +153,12 @@
   # Allow xdg portal
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
+  # Fix LD
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged
+    # programs here, NOT in environment.systemPackages!
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -157,6 +174,8 @@
     ani-cli
    #animdl
     pcsx2
+    retroarch
+    dolphin-emu
     git
     SDL
     waybar
@@ -209,6 +228,9 @@
     grapejuice
     shipwright
     nerdfonts
+    easyrpg-player
+    yewtube
+    pipes
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
