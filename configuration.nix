@@ -231,6 +231,7 @@
     pipes
     yewtube
     easyrpg-player
+    mesa
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
