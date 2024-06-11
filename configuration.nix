@@ -25,17 +25,17 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable automatic system upgrades
-  system.autoUpgrade = {
-  enable = true;
-  flake = inputs.self.outPath;
-  flags = [
-    "--update-input"
-    "nixpkgs"
-    "-L" #print build logs
-  ];
-  dates = "02:00";
-  randomizedDelaySec = "45min";
-  };
+  #system.autoUpgrade = {
+  #enable = true;
+  #flake = inputs.self.outPath;
+  #flags = [
+    #"--update-input"
+    #"nixpkgs"
+    #"-L" #print build logs
+  #];
+  #dates = "02:00";
+  #randomizedDelaySec = "45min";
+  #};
   # Enable networking
   networking.networkmanager.enable = true;
   # Set cores and jobs
