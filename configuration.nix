@@ -16,6 +16,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   # Fixes a kernel bug where the touchpad isn't recognized fully
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
+# Apparently this is the kernel zone, so have one for AMD gpus too!
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   networking.hostName = "shuniki"; # Define your hostname.
  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -87,7 +89,6 @@
   };
  hardware = {
    opengl.enable = true;
-   nvidia.modesetting.enable = true;
   };
 
   # Configure keymap in X11
