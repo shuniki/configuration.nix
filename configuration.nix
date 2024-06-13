@@ -16,9 +16,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   # Fixes a kernel bug where the touchpad isn't recognized fully
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
-  # Apparently this is the kernel zone, so have one for AMD gpus too!
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
+  # Kernel variation.
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Enable gamemode
+   programs.gamemode.enable = true;
+		
   networking.hostName = "shuniki"; # Define your hostname.
  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -65,11 +67,10 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable desktop environments.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.budgie.enable = true;
 
   # Default environment.
   environment.sessionVariables = {
@@ -77,21 +78,9 @@
    BROWSER = "brave";
    TERMINAL = "kitty";
    SHELL = "bash";
+   FILES = "krusader";
 };
-
-  # Enable hyprland
-   programs.hyprland = {
-   enable = true;
-   xwayland.enable = true;
-  };
-   environment.sessionVariables = {
-  # Hint electron apps to use wayland
-   NIXOS_OZONE_WL = "1";
-  };
- hardware = {
-   opengl.enable = true;
-  };
-
+ 
   # Configure keymap in X11
   services.xserver = {
    xkb.layout = "us";
@@ -154,7 +143,6 @@
   nixpkgs.config.allowUnfree = true;
   # Allow xdg portal
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Fix LD
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -213,6 +201,7 @@
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
+    krusader
     tor
     neo-cowsay
     cowsay
@@ -229,6 +218,7 @@
     cbonsai
     grapejuice
     shipwright
+    _2ship2harkinian
     nerdfonts
     pipes
     yewtube
