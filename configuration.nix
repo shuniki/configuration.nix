@@ -65,14 +65,24 @@
     LC_TIME = "ro_RO.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable desktop environments.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.lightdm.greeters.slick.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  # Enable x11 windowing and desktop environments.
+  services.xserver = {
+  	enable = true;
+	windowManager = {
+	i3.enable = true;
+       };
+	desktopManager = {
+	xfce.enable = true;
+        xterm.enable = false;
+      };
+      displayManager = {
+      lightdm.enable = true;
+      lightdm.greeters.slick.enable = true;
+     };
+   };
+   services.displayManager = {
+   defaultSession = "xfce";
+   };
 
   # Default environment.
   environment.sessionVariables = {
