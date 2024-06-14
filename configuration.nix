@@ -69,8 +69,10 @@
   services.xserver.enable = true;
 
   # Enable desktop environments.
-  services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.budgie.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.greeters.slick.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   # Default environment.
   environment.sessionVariables = {
@@ -79,6 +81,8 @@
    TERMINAL = "kitty";
    SHELL = "bash";
    FILES = "krusader";
+   VIDEO = "vlc";
+   AUDIO = "vlc";
 };
  
   # Configure keymap in X11
@@ -143,6 +147,7 @@
   nixpkgs.config.allowUnfree = true;
   # Allow xdg portal
   xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
   # Fix LD
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -155,9 +160,7 @@
     vim
     vlc
     wget
-    wayland
     brave
-    discord
     vesktop
     neofetch
     hyfetch
@@ -181,7 +184,6 @@
     lutris
     wine
     shutter
-    pywal
     glava
     cavalier
     protontricks
@@ -211,6 +213,7 @@
     lolcat
     aewan
     jp2a
+    ocs-url
     fortune
     fortune-kind
     pv
