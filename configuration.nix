@@ -237,6 +237,7 @@
     yewtube
     easyrpg-player
     mesa
+    qbittorrent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
