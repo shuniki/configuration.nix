@@ -213,6 +213,7 @@
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
+    libsFotQt5.kdenlive
     krusader
     tor
     neo-cowsay
