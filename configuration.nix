@@ -175,7 +175,7 @@
     neofetch
     hyfetch
     ani-cli
-   #animdl
+    animdl
     pcsx2
     retroarch
     dolphin-emu
@@ -213,7 +213,7 @@
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
-    libsFotQt5.kdenlive
+    libsForQt5.kdenlive
     krusader
     tor
     neo-cowsay
@@ -239,6 +239,10 @@
     easyrpg-player
     mesa
     qbittorrent
+    pamixer
+    xfce.xfce4-pulseaudio-plugin
+    xclip
+    youtube-dl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
