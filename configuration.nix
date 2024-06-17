@@ -90,7 +90,7 @@
    BROWSER = "brave";
    TERMINAL = "kitty";
    SHELL = "bash";
-   FILES = "krusader";
+   FILES = "nautilus";
    VIDEO = "vlc";
    AUDIO = "vlc";
 };
@@ -214,6 +214,7 @@
     libsForQt5.ark
     libsForQt5.kate
     libsForQt5.kdenlive
+    gnome.nautilus
     krusader
     tor
     neo-cowsay
@@ -244,6 +245,8 @@
     xclip
     youtube-dl
     unetbootin
+    ventoy-full
+    impression
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
