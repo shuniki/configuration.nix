@@ -243,6 +243,7 @@
     xfce.xfce4-pulseaudio-plugin
     xclip
     youtube-dl
+    unetbootin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
