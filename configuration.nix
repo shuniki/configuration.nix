@@ -68,10 +68,17 @@
   # Enable x11 windowing and desktop environments.
   services.xserver = {
   	enable = true;
-	windowManager = {
-	i3.enable = true;
+	windowManager.i3 = {
+	enable = true;
+	extraPackages = with pkgs; [
+	 dmenu #app launcher most people use
+	 i3status #default i3 status bar
+	 i3lock #default i3 lockscreen
+	 feh
+	 ];
        };
 	desktopManager = {
+	wallpaper.mode = "fill";
 	xfce.enable = true;
         xterm.enable = false;
       };
@@ -81,7 +88,7 @@
      };
    };
    services.displayManager = {
-   defaultSession = "xfce";
+   defaultSession = "none+i3";
    };
 
   # Default environment.
