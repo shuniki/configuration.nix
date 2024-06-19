@@ -236,6 +236,8 @@
     fortune
     fortune-kind
     pv
+    pwvucontrol
+    wireplumber
     cmatrix
     cbonsai
     grapejuice
