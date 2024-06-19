@@ -243,7 +243,6 @@
     pipes
     yewtube
     easyrpg-player
-    picom
     pamixer
     xob
     xfce.xfce4-pulseaudio-plugin
@@ -261,6 +260,9 @@
    };
 
   # List services that you want to enable:
+
+  # Use picom
+  services.picom.enable = true;
 
   # Use swap
  swapDevices = [{
