@@ -72,7 +72,8 @@
 	enable = true;
 	extraPackages = with pkgs; [
 	 dmenu #app launcher most people use
-	 i3status #default i3 status bar
+	 polybar #fun silly bar :3
+	 polybar-pulseaudio-control #audio for poly
 	 i3lock #default i3 lockscreen
 	 feh
 	 ];
@@ -244,9 +245,9 @@
     pipes
     yewtube
     easyrpg-player
-    neocomp
+    picom
     pamixer
-    volumeicon
+    xob
     xfce.xfce4-pulseaudio-plugin
     xclip
     ventoy-full
