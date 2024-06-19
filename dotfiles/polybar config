@@ -116,9 +116,6 @@ label-volume = %percentage%%
 label-muted = muted
 label-muted-foreground = ${colors.disabled}
 
-[module/pulseaudiocontrol]
-type = custom/script
-exec = pulseaudio-control [--autosync]
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
