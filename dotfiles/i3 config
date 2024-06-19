@@ -23,13 +23,10 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Start up apps
-exec_always xob
 exec polybar
-exec_always polybar-pulseaudio-control
 exec vesktop
 exec lunar-client
 exec steam
-exec_always picom
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
