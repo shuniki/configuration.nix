@@ -180,10 +180,6 @@
     wget
     brave
     vesktop
-    neofetch
-    hyfetch
-    ani-cli
-    animdl
     pcsx2
     retroarch
     dolphin-emu
