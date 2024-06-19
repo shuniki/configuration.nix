@@ -27,7 +27,7 @@ exec_always --autostart volumeicon
 exec_always --autostart vesktop
 exec_always --autostart lunar-client
 exec_always --autostart steam
-exec_always --autostart neocompt
+exec_always --autostart neocomp
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
