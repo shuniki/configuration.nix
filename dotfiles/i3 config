@@ -24,7 +24,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # Start up apps
 exec_always xob
-exec_always polybar
+exec polybar
 exec_always polybar-pulseaudio-control
 exec vesktop
 exec lunar-client
