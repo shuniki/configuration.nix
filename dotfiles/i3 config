@@ -23,11 +23,13 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Start up apps
-exec_always --autostart volumeicon
-exec_always --autostart vesktop
-exec_always --autostart lunar-client
-exec_always --autostart steam
-exec_always --autostart neocomp
+exec_always xob
+exec_always polybar
+exec_always polybar-pulseaudio-control
+exec vesktop
+exec lunar-client
+exec steam
+exec_always picom
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -188,9 +190,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
