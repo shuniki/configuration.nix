@@ -216,7 +216,6 @@
     nix-init
     appimage-run
     steam-run
-    minigalaxy
     libsForQt5.dolphin
     libsForQt5.ark
     libsForQt5.kate
@@ -245,13 +244,11 @@
     pipes
     yewtube
     easyrpg-player
-    mesa
-    qbittorrent
+    neocomp
     pamixer
+    volumeicon
     xfce.xfce4-pulseaudio-plugin
     xclip
-    youtube-dl
-    unetbootin
     ventoy-full
     impression
   ];
