@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs = {
+  config = {
+  	allowUnfree = true;
+	   };
+	    };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "shuniki";
@@ -21,6 +26,10 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
      pkgs.hello
+     pkgs.animdl
+     pkgs.ani-cli
+     pkgs.neofetch
+     pkgs.hyfetch
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -42,7 +51,7 @@
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
-     ".screenrc".source = dotfiles/screenrc;
+    # ".screenrc".source = dotfiles/screenrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
