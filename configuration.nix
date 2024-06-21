@@ -20,7 +20,9 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # Enable gamemode
    programs.gamemode.enable = true;
-		
+  # Enable xwayland
+  programs.xwayland.enable = true;
+
   networking.hostName = "shuniki"; # Define your hostname.
  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -181,12 +183,8 @@
     brave
     vesktop
     pcsx2
-    retroarch
-    dolphin-emu
     git
     SDL
-    waybar
-    dunst
     libnotify
     kitty
     swww
@@ -237,7 +235,6 @@
     cmatrix
     cbonsai
     grapejuice
-    shipwright
     _2ship2harkinian
     nerdfonts
     pipes
