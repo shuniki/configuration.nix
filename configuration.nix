@@ -101,7 +101,7 @@
    TERMINAL = "kitty";
    SHELL = "bash";
    FILES = "nautilus";
-   VIDEO = "vlc";
+   VIDEO = "haruna";
    AUDIO = "vlc";
 };
  
@@ -179,6 +179,7 @@
   environment.systemPackages = with pkgs; [
     vim
     vlc
+    haruna
     wget
     brave
     vesktop
