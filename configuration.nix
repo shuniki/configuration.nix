@@ -22,6 +22,8 @@
    programs.gamemode.enable = true;
   # Enable xwayland
   programs.xwayland.enable = true;
+  # Amd gpu. So far absolutely required, especially on older hardware.
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   networking.hostName = "shuniki"; # Define your hostname.
  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
