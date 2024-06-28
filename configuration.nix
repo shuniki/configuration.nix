@@ -51,6 +51,8 @@
   nix.settings.cores = 4;
   # Enable bluetooth
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   # Set your time zone.
   time.timeZone = "Europe/Bucharest";
 
@@ -199,6 +201,7 @@
     lutris
     wine
     shutter
+    maim
     glava
     cavalier
     protontricks
@@ -263,6 +266,9 @@
 
   # Use picom
   services.picom.enable = true;
+  
+  # Use flatpak
+  services.flatpak.enable = true;
 
   # Use swap
  swapDevices = [{
