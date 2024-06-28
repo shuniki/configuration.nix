@@ -203,6 +203,8 @@
     shutter
     maim
     glava
+    audacity
+    lmms
     cavalier
     protontricks
     python3
