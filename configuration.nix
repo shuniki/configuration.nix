@@ -47,8 +47,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
   # Set cores and jobs
-  nix.settings.max-jobs = 4;
-  nix.settings.cores = 4;
+  #nix.settings.max-jobs = 4;
+  #nix.settings.cores = 4;
   # Enable bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -226,6 +226,8 @@
     gnome.nautilus
     krusader
     tor
+    protonvpn-gui
+    protonmail-desktop
     neo-cowsay
     cowsay
     kittysay
