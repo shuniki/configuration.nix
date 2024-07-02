@@ -1,7 +1,7 @@
 # configuration.nix
 💜 GENERATION 100 ACHIEVED!!! 💜
 
-My first nixOS build! You can easily copy and paste or download these files into a new system.
+My first nixOS build! You can easily copy and paste or download these files into a new system. Just edit out the username and password and you should be good.
 
 Desktop environments used:
 - mate (Primary as of right now)
