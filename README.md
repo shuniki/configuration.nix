@@ -9,7 +9,7 @@ Desktop environments used:
 - xfce
 Desktop manager is lightdm.
 
-Has: 
+Has:
 -Flakes and Home Manager
 -Amdgpu module, but you can comment it out easily.
 -Tons of software i use!
