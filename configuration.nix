@@ -81,11 +81,10 @@
 	 polybar #fun silly bar :3
 	 polybar-pulseaudio-control #audio for poly
 	 i3lock #default i3 lockscreen
-	 feh
 	 ];
        };
 	desktopManager = {
-	wallpaper.mode = "fill";
+	wallpaper.mode = "scale";
 	xfce.enable = true;
 	mate.enable = true;
         xterm.enable = false;
