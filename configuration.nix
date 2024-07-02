@@ -105,6 +105,7 @@
    TERMINAL = "kitty";
    SHELL = "bash";
    FILES = "nautilus";
+   IMAGE = "gwenview";
    VIDEO = "haruna";
    AUDIO = "vlc";
 };
@@ -223,6 +224,7 @@
     libsForQt5.ark
     libsForQt5.kate
     libsForQt5.kdenlive
+    libsForQt5.gwenview
     gnome.nautilus
     krusader
     tor
