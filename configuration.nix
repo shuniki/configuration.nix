@@ -87,6 +87,7 @@
 	desktopManager = {
 	wallpaper.mode = "fill";
 	xfce.enable = true;
+	mate.enable = true;
         xterm.enable = false;
       };
       displayManager = {
@@ -95,7 +96,7 @@
      };
    };
    services.displayManager = {
-   defaultSession = "none+i3";
+   defaultSession = "mate";
    };
 
   # Default environment.
@@ -210,6 +211,7 @@
     protontricks
     python3
     wallust
+    conky
     cowsay
     neo-cowsay
     toybox
