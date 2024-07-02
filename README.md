@@ -7,6 +7,7 @@ Desktop environments used:
 - mate (Primary as of right now)
 - i3 (Secondary)
 - xfce
+
 Desktop manager is lightdm.
 
 Has:
